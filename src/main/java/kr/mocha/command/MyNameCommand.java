@@ -4,15 +4,16 @@ import cn.nukkit.Player;
 import cn.nukkit.command.Command;
 import cn.nukkit.command.CommandSender;
 import cn.nukkit.utils.TextFormat;
+import kr.mocha.manager.NameManager;
 import kr.mocha.manager.TagManager;
 
 /**
  * Created by user on 17. 1. 21.
  */
-public class MyTagCommand extends Command {
+public class MyNameCommand extends Command{
 
-    public MyTagCommand() {
-        super("mytag", "see my tag", "/mytag");
+    public MyNameCommand() {
+        super("myname", "see my names", "/myname");
         this.setPermission("tag.user.cmd");
     }
 
@@ -22,8 +23,8 @@ public class MyTagCommand extends Command {
             sender.sendMessage(TextFormat.RED+"this command is use only player!");
         else {
             Player player = (Player) sender;
-            TagManager manager = new TagManager(player);
-            player.sendMessage(TextFormat.GREEN+"=== My tags ===");
+            NameManager manager = new NameManager(player);
+            player.sendMessage(TextFormat.GREEN+"=== My names ===");
 
             int i = 0;
             for (String s : manager.gets()) {
@@ -33,4 +34,5 @@ public class MyTagCommand extends Command {
         }
         return false;
     }
+
 }
