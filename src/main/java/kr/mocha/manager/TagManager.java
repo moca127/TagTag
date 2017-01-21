@@ -25,32 +25,38 @@ public class TagManager {
     }
 
     public boolean hasTag(String tag) {
-        List<String> list = config.getList(player.getName());
+        List<String> list = config.getList("tag");
         if (list.contains(tag)) return true;
         return false;
     }
 
     public void addTag(String... tag) {
-        List<String> list = config.getList(player.getName());
+        List<String> list = config.getList("tag");
 
         for(String s : tag) {
             if (!hasTag(s)) list.add(s);
         }
-        config.set(player.getName(), list);
+        config.set("tag", list);
         config.save();
     }
 
     public void setTag(String tag) {
-        this.tag.set(player.getName(), tag);
-        this.tag.save();
-        player.setDisplayName(tag+" "+player.getName()+TextFormat.WHITE);
-        player.setNameTag(tag+" "+player.getName()+TextFormat.WHITE);
+        if(hasTag(tag)) {
+            this.tag.set(player.getName(), tag);
+            this.tag.save();
+            player.setDisplayName(tag + " " + player.getDisplayName() + TextFormat.WHITE);
+            player.setNameTag(tag + " " + player.getDisplayName() + TextFormat.WHITE);
+        }
+    }
+
+    public void deleteTag(int index) {
+
     }
 
     public void makeTags(String... tag) {
         List<String> list = Arrays.asList(tag);
 
-        config.set(player.getName(), list);
+        config.set("tag", list);
         config.save();
         setTag(tag[0]);
     }
@@ -60,7 +66,7 @@ public class TagManager {
     }
 
     public List<String> getTags() {
-        return config.getList(player.getName());
+        return config.getList("tag");
     }
 
 }
