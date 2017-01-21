@@ -1,0 +1,11 @@
+name: TagTag
+main: kr.mocha.TagTag
+version: 1.0-SNAPSHOT
+author: mocha
+api: [1.0.0]
+
+permissions :
+ tag.op.cmd :
+  default : OP
+ tag.user.cmd :
+  default : true
