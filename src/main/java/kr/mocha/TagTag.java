@@ -47,6 +47,10 @@ public class TagTag extends PluginBase implements Listener {
         this.getServer().getCommandMap().register("addname", new AddNameCommand());
         this.getServer().getCommandMap().register("selecttag", new SelectTagCommand());
         this.getServer().getCommandMap().register("selectname", new SelectNameCommand());
+        this.getServer().getCommandMap().register("deltag", new DelTagCommand());
+        this.getServer().getCommandMap().register("delname", new DelNameCommand());
+        this.getServer().getCommandMap().register("seetag", new SeeTagCommand());
+        this.getServer().getCommandMap().register("seename", new SeeNameCommand());
     }
 
     public static TagTag getInstance() {
