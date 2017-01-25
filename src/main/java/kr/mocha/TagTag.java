@@ -6,6 +6,7 @@ import cn.nukkit.event.Listener;
 import cn.nukkit.event.player.PlayerLoginEvent;
 import cn.nukkit.plugin.PluginBase;
 import cn.nukkit.utils.Config;
+import cn.nukkit.utils.TextFormat;
 import kr.mocha.command.*;
 import kr.mocha.manager.NameManager;
 import kr.mocha.manager.TagManager;
@@ -30,16 +31,16 @@ public class TagTag extends PluginBase implements Listener {
         super.onEnable();
     }
 
-    @EventHandler(priority = EventPriority.HIGH)
+    @EventHandler
     public void onLogin(PlayerLoginEvent event) {
+        String n = event.getPlayer().getName();
         if(!name.exists(event.getPlayer().getName())) {
             new NameManager(event.getPlayer()).make();
         }
         if(!tag.exists(event.getPlayer().getName())) {
             new TagManager(event.getPlayer()).make();
         }
-        new NameManager(event.getPlayer()).set(name.getString(event.getPlayer().getName()));
-        new TagManager(event.getPlayer()).set(tag.getString(event.getPlayer().getName()));
+        event.getPlayer().setDisplayName(tag .getString(n)+" "+name.getString(n)+ TextFormat.WHITE);
     }
 
 
