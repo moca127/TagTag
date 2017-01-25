@@ -71,7 +71,7 @@ public class TagManager extends Manager {
             tag.set(player.getName(), arg);
             tag.save();
             player.setDisplayName(arg+" "+player.getDisplayName()+TextFormat.WHITE);
-            player.setNameTag(arg+" "+player.getDisplayName()+TextFormat.WHITE);
+            player.setNameTag(player.getDisplayName());
         }
     }
 
@@ -80,7 +80,7 @@ public class TagManager extends Manager {
         tag.set(player.getName(), list.get(index));
         tag.save();
         player.setDisplayName(list.get(index)+" "+player.getDisplayName()+TextFormat.WHITE);
-        player.setNameTag(list.get(index)+" "+player.getDisplayName()+TextFormat.WHITE);
+        player.setNameTag(player.getDisplayName());
     }
 
     @Override

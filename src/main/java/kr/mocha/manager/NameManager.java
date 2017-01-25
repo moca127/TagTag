@@ -72,7 +72,7 @@ public class NameManager extends Manager {
             name.save();
             String tag = TagTag.getInstance().tag.getString(player.getName());
             player.setDisplayName(tag+" "+arg+TextFormat.WHITE);
-            player.setNameTag(tag+" "+arg+TextFormat.WHITE);
+            player.setNameTag(player.getDisplayName());
         }
     }
 
@@ -82,7 +82,7 @@ public class NameManager extends Manager {
         name.save();
         String tag = TagTag.getInstance().tag.getString(player.getName());
         player.setDisplayName(tag+" "+list.get(index)+TextFormat.WHITE);
-        player.setNameTag(tag+" "+list.get(index)+TextFormat.WHITE);
+        player.setNameTag(player.getDisplayName());
     }
 
     @Override

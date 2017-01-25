@@ -1,6 +1,7 @@
 package kr.mocha;
 
 import cn.nukkit.event.EventHandler;
+import cn.nukkit.event.EventPriority;
 import cn.nukkit.event.Listener;
 import cn.nukkit.event.player.PlayerLoginEvent;
 import cn.nukkit.plugin.PluginBase;
@@ -29,7 +30,7 @@ public class TagTag extends PluginBase implements Listener {
         super.onEnable();
     }
 
-    @EventHandler
+    @EventHandler(priority = EventPriority.HIGHEST)
     public void onLogin(PlayerLoginEvent event) {
         if(!name.exists(event.getPlayer().getName())) {
             new NameManager(event.getPlayer()).make();
