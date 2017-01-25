@@ -41,6 +41,7 @@ public class TagTag extends PluginBase implements Listener {
             new TagManager(event.getPlayer()).make();
         }
         event.getPlayer().setDisplayName(tag .getString(n)+" "+name.getString(n)+ TextFormat.WHITE);
+        event.getPlayer().setNameTag(event.getPlayer().getDisplayName());
     }
 
 
