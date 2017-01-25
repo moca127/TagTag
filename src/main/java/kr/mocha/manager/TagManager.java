@@ -70,7 +70,8 @@ public class TagManager extends Manager {
         if(has(arg)) {
             tag.set(player.getName(), arg);
             tag.save();
-            player.setDisplayName(arg+" "+player.getDisplayName()+TextFormat.WHITE);
+            String name = TagTag.getInstance().name.getString(player.getName());
+            player.setDisplayName(arg+" "+name+TextFormat.WHITE);
             player.setNameTag(player.getDisplayName());
         }
     }
@@ -79,7 +80,8 @@ public class TagManager extends Manager {
         List<String> list = config.getList("tags");
         tag.set(player.getName(), list.get(index));
         tag.save();
-        player.setDisplayName(list.get(index)+" "+player.getDisplayName()+TextFormat.WHITE);
+        String name = TagTag.getInstance().name.getString(player.getName());
+        player.setDisplayName(list.get(index)+" "+name+TextFormat.WHITE);
         player.setNameTag(player.getDisplayName());
     }
 
