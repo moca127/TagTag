@@ -30,7 +30,7 @@ public class TagTag extends PluginBase implements Listener {
         super.onEnable();
     }
 
-    @EventHandler(priority = EventPriority.HIGHEST)
+    @EventHandler(priority = EventPriority.HIGH)
     public void onLogin(PlayerLoginEvent event) {
         if(!name.exists(event.getPlayer().getName())) {
             new NameManager(event.getPlayer()).make();
@@ -38,6 +38,8 @@ public class TagTag extends PluginBase implements Listener {
         if(!tag.exists(event.getPlayer().getName())) {
             new TagManager(event.getPlayer()).make();
         }
+        new NameManager(event.getPlayer()).set(name.getString(event.getPlayer().getName()));
+        new TagManager(event.getPlayer()).set(tag.getString(event.getPlayer().getName()));
     }
 
 
